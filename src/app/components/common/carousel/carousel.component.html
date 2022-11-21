@@ -1,0 +1,9 @@
+<carousel>
+  <slide *ngFor="let item of carouselList">
+    <img [src]="item.imgPath" alt="first slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3>{{item.imgTitle[currentLang]}}</h3>
+      <p>{{item.imgParagraph[currentLang]}}</p>
+    </div>
+  </slide>
+</carousel>

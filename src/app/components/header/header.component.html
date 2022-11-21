@@ -1,0 +1,42 @@
+<div class="headerContainer">
+  <div class="container">
+    <div class="row m-0 d-flex align-items-center">
+      <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="logo">
+          <img src="assets/img/logo.png" routerLink="/">
+        </div>
+      </div>
+      <div class="col-lg-10 col-md-8 col-sm-12">
+        <div class="rightSection d-flex align-items-center">
+          <div class="{{currentLang === 'ar' ? 'mr-auto':'ml-auto'}}">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-primary" (click)="openModal(template)">
+                {{'bookTicket.link' | translate}}
+              </button>
+              <select class="form-control mx-3" (change)="translateSite($event)">
+                <option value="ar">{{'lang.ar' | translate}}</option>
+                <option selected value="en">{{'lang.en' | translate}}</option>
+              </select>
+              <a (click)="navigateForLogin()">
+                {{'common.login' | translate}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">
+      {{"bookTicket.modalTitle" | translate}}
+    </h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  </div>
+</ng-template>

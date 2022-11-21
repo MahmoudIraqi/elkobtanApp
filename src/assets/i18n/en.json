@@ -1,0 +1,13 @@
+{
+  "lang": {
+    "ar": "Ar",
+    "en": "En"
+  },
+  "common": {
+    "login": "Login"
+  },
+  "bookTicket": {
+    "link": "Book Ticket",
+    "modalTitle": "Book Ticket"
+  }
+}

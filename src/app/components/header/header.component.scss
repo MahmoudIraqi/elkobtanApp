@@ -1,0 +1,36 @@
+.headerContainer {
+  width: 100%;
+  background: #9e0404;
+  box-shadow: 0px 4px 5px #6d6d6d;
+
+  > div {
+    flex: 1;
+  }
+}
+
+.logo {
+  width: 100%;
+  padding: 15px 0px;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+  }
+}
+
+.rightSection {
+  flex-grow: 1;
+  color: #fff;
+
+  a {
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: #9e0404;
+    white-space: nowrap;
+    border: none;
+    outline: none;
+  }
+}
