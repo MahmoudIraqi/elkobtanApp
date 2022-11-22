@@ -11,6 +11,9 @@ import {HeaderComponent} from './components/header/header.component';
 import {CarouselComponent} from './components/common/carousel/carousel.component';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {BookTicketsComponent} from './components/book-tickets/book-tickets.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TabsModule} from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     HomeContainerComponent,
     HomepageComponent,
     HeaderComponent,
-    CarouselComponent
+    CarouselComponent,
+    BookTicketsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,9 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     }),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
+    TabsModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [TranslateModule, CarouselComponent],
   providers: [],

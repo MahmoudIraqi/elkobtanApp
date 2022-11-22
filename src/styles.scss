@@ -5,3 +5,50 @@
 .mr-auto {
   margin-right: auto !important;
 }
+
+
+input,
+button,
+select {
+  border-radius: 0.8rem !important;
+}
+
+input:focus, select:focus {
+  outline: none !important;
+  border: 1px solid #191919 !important;
+  box-shadow: none !important;
+}
+
+.modal-content {
+  top: calc((100vh - 640px) / 2);
+  padding: 2rem 1rem;
+
+  .modal-header {
+    border: none;
+    color: #191919;
+    padding: 2px;
+
+    button {
+      background: none;
+      border: none;
+      color: #191919;
+    }
+  }
+
+  .form-group {
+    label {
+      color: #191919 !important;
+    }
+  }
+
+  .btn-primary {
+    background: #9e0404;
+    border-color: #9e0404;
+  }
+
+  .btn-secondary {
+    background: #ffffff;
+    border-color: #9e0404;
+    color: #9e0404;
+  }
+}

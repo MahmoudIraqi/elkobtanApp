@@ -1,9 +1,20 @@
 <div class="appContainer" [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
   <app-header (selectedLanguage)="changeLang($event)"></app-header>
 
+  <button class="btn btn-primary bookBtn" (click)="openModal(template)">
+    <span><i class="bi bi-bookmarks"></i></span>
+    {{'bookTicket.link' | translate}}
+  </button>
+
   <div class="sectionContainer">
     <div class="whiteContainer">
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
   </div>
 </div>
+
+<ng-template #template>
+  <div class="modal-body" [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+    <app-book-tickets (closeModal)="closeModal()"></app-book-tickets>
+  </div>
+</ng-template>

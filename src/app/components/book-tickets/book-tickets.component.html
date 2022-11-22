@@ -1,0 +1,174 @@
+<form class="mt-2" name="form" class="example-form" method="post"
+      [formGroup]="bookTicketForm"
+      (keydown.enter)="$event.preventDefault()"
+      (ngSubmit)="onSubmit()" novalidate>
+  <div class="row">
+    <div class="col-12 p-0">
+      <tabset type="pills" [justified]="true" #formTabs>
+        <tab [heading]="'bookTicket.tabs.oneWay.'+currentLang | translate" id="oneWay"
+             (selectTab)="selectedTab($event)">
+          <div class="pt-4" formGroupName="oneWay">
+            <div class="row m-0 mt-3">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.customerName' | translate}}</label>
+                  <input type="text" class="form-control" formControlName="customerName">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.customerPhoneNumber' | translate}}</label>
+                  <input type="number" maxlength="11" class="form-control" formControlName="customerPhoneNumber">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.fromDate' | translate}}</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="ridingPoint">
+                    <option hidden value="" disabled>{{'bookTicket.form.selectOption' | translate}}</option>
+                    <option *ngFor="let point of allSelectOptions.allBusPoints" [value]="point[currentLang]">
+                      {{point[currentLang]}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.toDate' | translate}}</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="arrivingPoint">
+                    <option hidden value="" disabled>{{'bookTicket.form.selectOption' | translate}}</option>
+                    <option *ngFor="let point of allSelectOptions.allBusPoints" [value]="point[currentLang]">
+                      {{point[currentLang]}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.departureDate' | translate}}</label>
+                  <input type="date" class="form-control" formControlName="date">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.departureTime' | translate}}</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="time">
+                    <option hidden value="" disabled>{{'bookTicket.form.selectOption' | translate}}</option>
+                    <option *ngFor="let time of allSelectOptions.times" [value]="time[currentLang]">
+                      {{time[currentLang]}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.passenger' | translate}}</label>
+                  <input type="number" maxlength="11" class="form-control" formControlName="passenger">
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab [heading]="'bookTicket.tabs.roundWay.'+currentLang | translate" id="roundWay"
+             (selectTab)="selectedTab($event)">
+          <div class="pt-4" formGroupName="roundWay">
+            <div class="row m-0 mt-3">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.customerName' | translate}}</label>
+                  <input type="text" class="form-control" formControlName="customerName">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.customerPhoneNumber' | translate}}</label>
+                  <input type="number" maxlength="11" class="form-control" formControlName="customerPhoneNumber">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.fromDate' | translate}}</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="ridingPoint">
+                    <option hidden value="" disabled>{{'bookTicket.form.selectOption' | translate}}</option>
+                    <option *ngFor="let point of allSelectOptions.departureBusPoints" [value]="point[currentLang]">
+                      {{point[currentLang]}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.toDate' | translate}}</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="arrivingPoint">
+                    <option hidden value="" disabled>{{'bookTicket.form.selectOption' | translate}}</option>
+                    <option *ngFor="let point of allSelectOptions.returnBusPoints" [value]="point[currentLang]">
+                      {{point[currentLang]}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.departureTime' | translate}}</label>
+                  <input type="date" class="form-control" formControlName="date">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.returnDate' | translate}}</label>
+                  <input type="date" class="form-control" formControlName="returnDate">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.departureTime' | translate}}</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="time">
+                    <option hidden value="" disabled>{{'bookTicket.form.selectOption' | translate}}</option>
+                    <option *ngFor="let time of allSelectOptions.times" [value]="time[currentLang]">
+                      {{time[currentLang]}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.returnTime' | translate}}</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="returnTime">
+                    <option hidden value="" disabled>{{'bookTicket.form.selectOption' | translate}}</option>
+                    <option *ngFor="let time of allSelectOptions.times" [value]="time[currentLang]">
+                      {{time[currentLang]}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 mt-4">
+                <div class="form-group">
+                  <label>{{'bookTicket.form.passenger' | translate}}</label>
+                  <input type="number" maxlength="11" class="form-control" formControlName="passenger">
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+  <div class="row buttonContainer btm-out">
+    <div class="col-12 d-flex flex-column flex-md-row mt-3">
+      <button type="button" class="btn btn-secondary btn-md" (click)="closeModalFunction()">
+        {{'bookTicket.form.close' | translate}}
+      </button>
+      <div class="{{currentLang === 'ar' ? 'mr-auto':'ml-auto'}}">
+        <button
+          type="submit"
+          [disabled]="!bookTicketForm.valid"
+          class="btn btn-primary btn-md">
+          <span>{{'bookTicket.form.submit' | translate}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+

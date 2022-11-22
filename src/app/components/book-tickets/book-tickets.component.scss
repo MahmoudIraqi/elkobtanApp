@@ -1,0 +1,38 @@
+.form-group {
+  label {
+    color: #191919;
+  }
+}
+
+.pillsContainer {
+  width: 100%;
+  border: 2px solid #9e0404;
+  padding: 1rem 0px;
+  margin-top: 1rem;
+  border-radius: 0.8rem;
+
+  .form-group {
+    label {
+      color: #fff;
+    }
+  }
+}
+
+:host ::ng-deep .nav-item {
+  border: 1px solid #9e0404;
+  margin: 0 10px;
+  border-radius: 0.6rem;
+
+  a {
+    color: #9e0404;
+  }
+
+  &.active {
+    background: #9e0404;
+
+    a {
+      background: none;
+      color: #ffffff;
+    }
+  }
+}

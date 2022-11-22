@@ -2,7 +2,7 @@ import {Component, Output, EventEmitter, OnInit, TemplateRef} from '@angular/cor
 import {InputService} from "../../../utils/input.service";
 import {distinctUntilChanged, filter} from "rxjs/operators";
 import {TranslateService} from "@ngx-translate/core";
-import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
+import {BsModalRef, BsModalService, ModalOptions} from "ngx-bootstrap/modal";
 
 @Component({
   selector: 'app-header',
@@ -13,9 +13,13 @@ export class HeaderComponent implements OnInit {
   @Output() selectedLanguage = new EventEmitter();
   currentLang = this.translateService.currentLang ? this.translateService.currentLang : 'en';
   modalRef?: BsModalRef;
+  modalOptions: ModalOptions = {
+    backdrop: 'static',
+    keyboard: false,
+    class: 'modal-lg bookTicket',
+  };
 
   constructor(public translateService: TranslateService,
-              private modalService: BsModalService,
               private inputService: InputService) {
     translateService.addLangs(['en', 'ar']);
     translateService.setDefaultLang('en')
@@ -38,9 +42,5 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateForLogin() {
-  }
-
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
   }
 }
